@@ -199,7 +199,7 @@ func (cl *Client) ConnectWithContext(ctx context.Context, net Network) (Network,
 	case ev := <-sub.Next():
 		switch ev.Name {
 		case EventConnected:
-			return net, cl.SaveConfig()
+			return net, nil
 		case EventNetworkNotFound:
 			return net, ErrSSIDNotFound
 		case EventAuthReject:
